@@ -18,8 +18,7 @@ def get_japanese_emoticon(file_path, emoticon)
   hash = load_library(file_path)
   dict = hash.select {|key,value| value[:english] == emoticon}
   dict[dict.keys[0]][:japanese]
-  end
-  end
+end
 
 def get_english_meaning(file_path, emoticon)
   hash = load_library(file_path)
