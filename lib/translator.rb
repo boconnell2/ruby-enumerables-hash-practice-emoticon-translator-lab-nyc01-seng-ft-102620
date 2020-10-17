@@ -16,19 +16,13 @@ end
 
 def get_japanese_emoticon(file_path, emoticon)
   hash = load_library(file_path)
-  if !hash.has_value?(emoticon)
-    p "Sorry, that emoticon was not found"
-  else 
-    dict = hash.select {|key,value| value[:english] == emoticon}
-    dict[dict.keys[0]][:japanese]
+  dict = hash.select {|key,value| value[:english] == emoticon}
+  dict[dict.keys[0]][:japanese]
   end
 end
 
 def get_english_meaning(file_path, emoticon)
   hash = load_library(file_path)
-  if !hash.has_value?(emoticon)
-    p "Sorry, that emoticon was not found"
-  else
     dict = hash.select {|key,value| value[:japanese] == emoticon}
     dict.keys[0]
   end 
