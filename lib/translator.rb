@@ -23,6 +23,7 @@ end
 def get_english_meaning(file_path, emoticon)
   hash = load_library(file_path)
   dict = hash.select {|key,value| value[:japanese] == emoticon}
+  binding.pry 
   if dict == nil
     puts "Sorry, that emoticon was not found"
   else
