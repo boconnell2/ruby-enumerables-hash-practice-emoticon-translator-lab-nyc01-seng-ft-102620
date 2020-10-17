@@ -22,11 +22,10 @@ end
 
 def get_english_meaning(file_path, emoticon)
   hash = load_library(file_path)
-  dict = hash.select {|key,value| value[:japanese] == emoticon}
-  binding.pry 
-  if dict == {}
+  if !hash.hasvalue?(emoticon)
     puts "Sorry, that emoticon was not found"
   else
+    dict = hash.select {|key,value| value[:japanese] == emoticon}
     dict.keys[0]
   end 
 end
