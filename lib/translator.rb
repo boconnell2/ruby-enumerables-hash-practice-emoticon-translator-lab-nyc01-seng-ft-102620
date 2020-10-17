@@ -14,8 +14,10 @@ def load_library(file_path)
   final_hash
 end
 
-def get_japanese_emoticon
-  # code goes here
+def get_japanese_emoticon(file_path, emoticon)
+  hash = load_library(file_path)
+  dict = hash.select {|key,value| value[:english] == emoticon}
+  dict[dict.keys[0]][:japanese]
 end
 
 def get_english_meaning(file_path, emoticon)
