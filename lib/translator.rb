@@ -17,6 +17,8 @@ end
 def get_japanese_emoticon(file_path, emoticon)
   hash = load_library(file_path)
   dict = hash.select {|key,value| value[:english] == emoticon}
+  if dict == {}
+    p 
   dict[dict.keys[0]][:japanese]
 end
 
